@@ -1,0 +1,121 @@
+<html>  
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>  
+    Edit Teacher
+    </title>
+    <style>
+            *{
+            margin:0;
+        }
+        #add{
+            margin-top:2%;
+            margin-left:40%;
+        }
+        thead{
+            background: black;
+            color: white;
+        }
+        li {
+        float: left;
+        }
+        nav{
+            list-style-type:none;
+            padding: 0%;
+        margin: 0%;
+        width: 100%;
+        overflow: hidden;
+        position: sticky;
+        top: 0;
+        }
+        li a{
+            display: block;
+            padding: 15px;
+            text-decoration-line: none;
+            color: black;
+            text-align: center;
+        }
+        ul {
+        }
+        li a:hover:not(.active){
+            background-color: #1a1a1a;
+            color: rgb(255, 255, 255);
+        }
+        li a.active{
+            background-color: #1a1a1a;
+        }
+            .header{padding-left:1%;
+            }
+            .table{padding-left:30%;padding-top:3%;
+            }
+    </style>  
+</head>  
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.php">Class Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="../students/index.php">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../teachers/index.php">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../classes/index.php" style="color: rgb(255, 255, 255)">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="../class-rosters/index.php">Class Rosters</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <h1>Edit Class</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container"> 
+    <div class="table">   
+        <form method="POST" action="../classes/update.php">
+            <input type="hidden" name="id" value="{{id}}"/>
+             <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="name" name="name" value="{{name}}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="description" name="description" value="{{description}}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="class_code" class="col-sm-2 col-form-label">Code:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="class_code" name="class_code" value="{{class_code}}" required>
+                </div>
+            </div>
+             <div class="form-group row">
+                <label for="employee_number" class="col-sm-2 col-form-label">Employee Number:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="employee_number" name="employee_number" value="{{employee_number}}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                <button id="submit"  type="submit" class="btn btn-success btn-md mb-2">Submit Changes</button>
+                <a type="button" href="../classes/index.php" class="btn btn-primary btn-md mb-2">Cancel</a>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

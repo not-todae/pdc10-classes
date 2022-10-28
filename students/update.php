@@ -3,7 +3,6 @@ include ("../init.php");
 use Models\Student;
 
 try{
-    //if (isset($_POST['id'])){;
     $id = $_POST['id'];
 
         $first_name = $_POST['first_name'];
@@ -19,7 +18,6 @@ try{
         echo "<script>window.location.href='index.php';</script>";
         exit;
         }
-    //}
 
 catch (Exception $e){
     error_log($e->getMessage());

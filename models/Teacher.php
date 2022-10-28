@@ -130,4 +130,18 @@ class Teacher
             error_log($e->getMessage());
         }
     }
+    public function viewTeacher($id)
+    {
+        try {
+
+            $sql = "SELECT * FROM teachers INNER JOIN classes ON teachers.employee_number=classes.employee_number WHERE teachers.id=:id";
+			$statement = $this->connection->prepare($sql);
+            $statement->execute([
+                ':id' => $id
+            ]);
+            return $statement->fetchAll();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+    }
 }

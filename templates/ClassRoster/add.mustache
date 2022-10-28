@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="../students/index.php" style="color: rgb(255, 255, 255)">Students</a>
+                    <a class="nav-link " href="../students/index.php" >Students</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../teachers/index.php">Teachers</a>
@@ -68,47 +68,33 @@
                     <a class="nav-link" href="../classes/index.php">Classes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../class-rosters/index.php">Class Rosters</a>
+                    <a class="nav-link active" href="../class-rosters/index.php" style="color: rgb(255, 255, 255)">Class Rosters</a>
                 </li>
                 </ul>
             </div>
         </nav>
     <div class="container">
-        <div class="row">
-            <div class="header">
-                <h1>Add Class Roster</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-    <div class="table">        
-        <form method="POST" action="../classes/add.php">
-        <input type="hidden" name="id" value="{{id}}"/>
-            <div class="form-group row">
-                <label for="class_code" class="col-sm-2 col-form-label">Class Code:</label>
-                <div class="col-sm-4">
-                <input type="text" class="form-control" id="class_code" name="class_code" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="program" class="col-sm-2 col-form-label">Select Student:</label>
-                    <div class="col-sm-4">
-                        <select class="form-select" name="student_number" id="student_number" aria-label="Select Student">
-                            <option selected disabled hidden>Select a Teacher</option>
-                            {{#all_teachers}}
-                            <option name="student_number" value="{{student_number}}">{{first_name}} {{last_name}}</option>
-                            {{/all_teachers}}
-                        </select>
-                    </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-4">
-                <button id="submit"  type="submit" class="btn btn-success btn-md mb-2">Submit Changes</button>
-                <a type="button" href="../class-rosters/index.php" class="btn btn-primary btn-md mb-2">Cancel</a>
-                </div>
-            </div>
-        </form>
-        </div>
-    </div>
+</head>
+    <div class="container mt-5">
+          <form method="POST" action="../class-rosters/add.php?class_code={{class_code}}">
+              <h4 class="fw-bold">Add a Student to this roster</h4>
+      <input type="hidden" name="class_code" id="class_code" value="{{class_code}}"/>
+            <!-- Card body -->
+                <div class="mb-3">
+                  <select name="student_number" id="student_number" class="form-control form-control-lg" required>
+                  <label for="student_number" class="form-label">Pick A Student</label>
+                  <option value="" selected="true" disabled="disabled" hidden>Select Student</option>
+                   {{# showStudents }}
+                    <option value="{{student_number}}">{{first_name}} {{last_name}}</option>
+                    {{/ showStudents }}
+                  </select>
+              </div>
+              <a type="button" href="../class-rosters/index.php" class="btn btn-primary btn-md mb-2">Cancel</a>
+              <button id="submit" type="submit" class="btn btn-primary btn-md mb-2">Submit</button>
+          </form>
+      </div>
+    
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>    
 </body>
 </html>

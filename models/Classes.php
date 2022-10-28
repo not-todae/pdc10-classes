@@ -10,6 +10,7 @@ class Classes
     protected $description;
     protected $class_code;
     protected $employee_number;
+    protected $connection;
 
     public function __construct($name, $description, $class_code, $employee_number)
     {
